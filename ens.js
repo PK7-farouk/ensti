@@ -55,3 +55,34 @@ document.addEventListener('keypress', (e) => {
         validateLogin();
     }
 });
+// دالة لإرسال البيانات إلى السيرفر الذي أنشأناه على رندر
+async function sendDataToServer(data) {
+    try {
+        const response = await fetch('https://ensti-1.onrender.com/data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+        console.log('نجح الاتصال:', result);
+        alert('تم حفظ البيانات بنجاح في قاعدة البيانات!');
+    } catch (error) {
+        console.error('فشل الاتصال:', error);
+        alert('حدث خطأ أثناء الاتصال بالسيرفر');
+    }
+}
+// لنفترض أن زر الإرسال في الـ HTML له id اسمه "submitBtn"
+const myButton = document.getElementById('submitBtn');
+
+if(myButton) {
+    myButton.addEventListener('click', () => {
+        const dataToSave = { 
+            message: "مرحباً، هذه أول معلومة أخزنها!", 
+            time: new Date() 
+        };
+        sendDataToServer(dataToSave);
+    });
+}
