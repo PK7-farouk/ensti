@@ -24,210 +24,86 @@
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            margin: 0;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            overflow-x: hidden;
+            margin: 0; background-color: var(--bg-body); color: var(--text-main); overflow-x: hidden;
         }
 
         /* --- شاشة الدخول --- */
         #login-page {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            height: 100vh; display: flex; justify-content: center; align-items: center;
             background: linear-gradient(rgba(114, 0, 0, 0.8), rgba(74, 0, 0, 0.9)), 
                         url('https://www.transparenttextures.com/patterns/cubes.png');
-            position: relative;
         }
 
         .login-card {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            padding: 50px 40px;
-            border-radius: var(--radius-xl);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            width: 420px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            animation: fadeInScale 0.6s ease;
+            background: var(--glass); backdrop-filter: blur(15px); padding: 50px 40px;
+            border-radius: var(--radius-xl); width: 420px; text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3); animation: fadeInScale 0.6s ease;
         }
 
         .login-card img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 4px solid var(--accent-gold);
-            padding: 5px;
-            background: white;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            width: 140px; height: 140px; border-radius: 50%; border: 4px solid var(--accent-gold);
+            padding: 5px; background: white; margin-bottom: 25px;
         }
 
         .input-group { position: relative; margin-bottom: 20px; }
-        .input-group i { 
-            position: absolute; right: 18px; top: 50%; 
-            transform: translateY(-50%); color: var(--primary-maroon);
-            font-size: 1.1rem;
-        }
-        
+        .input-group i { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: var(--primary-maroon); }
         .input-group input {
-            width: 100%;
-            padding: 16px 50px 16px 16px;
-            border: 2px solid transparent;
-            border-radius: var(--radius-md);
-            background: white;
-            font-size: 1rem;
-            box-sizing: border-box;
-            transition: var(--transition);
-        }
-
-        .input-group input:focus {
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1);
-            outline: none;
+            width: 100%; padding: 16px 50px 16px 16px; border: 2px solid transparent;
+            border-radius: var(--radius-md); background: white; box-sizing: border-box; outline: none;
         }
 
         .btn-login {
-            width: 100%;
-            padding: 16px;
-            background: var(--primary-maroon);
-            color: white;
-            border: none;
-            border-radius: var(--radius-md);
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 10px 15px -3px rgba(114, 0, 0, 0.3);
-        }
-
-        .btn-login:hover {
-            background: var(--dark-maroon);
-            transform: translateY(-3px);
+            width: 100%; padding: 16px; background: var(--primary-maroon); color: white;
+            border: none; border-radius: var(--radius-md); font-weight: 700; cursor: pointer; transition: 0.3s;
         }
 
         /* --- لوحة التحكم --- */
         #app-dashboard { display: none; }
-
         header {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 15px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            position: sticky; top: 0; z-index: 1000;
-        }
-
-        .header-logo-section { display: flex; align-items: center; }
-        .header-logo-section img {
-            height: 60px;
-            width: 60px;
-            border-radius: 50%;
-            border: 2px solid var(--accent-gold);
+            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); padding: 15px 50px;
+            display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000;
         }
 
         .sidebar {
-            width: 280px;
-            height: 85vh;
-            background: var(--primary-maroon);
-            position: fixed;
-            right: 20px; top: 100px;
-            border-radius: var(--radius-xl);
-            padding: 30px 15px;
-            color: white;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            width: 280px; height: 85vh; background: var(--primary-maroon); position: fixed;
+            right: 20px; top: 100px; border-radius: var(--radius-xl); padding: 30px 15px; color: white;
         }
 
         .sidebar-menu { list-style: none; padding: 0; }
         .sidebar-menu li {
-            padding: 16px 20px;
-            margin-bottom: 12px;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transition: var(--transition);
-            font-weight: 500;
-            opacity: 0.8;
+            padding: 16px 20px; margin-bottom: 12px; border-radius: var(--radius-md);
+            cursor: pointer; display: flex; align-items: center; gap: 15px; transition: 0.3s; opacity: 0.8;
         }
-
-        .sidebar-menu li:hover, .sidebar-menu li.active {
-            background: var(--gold-gradient);
-            color: white;
-            opacity: 1;
-            transform: translateX(-10px);
-        }
+        .sidebar-menu li.active { background: var(--gold-gradient); opacity: 1; transform: translateX(-10px); }
 
         .main-content { margin-right: 320px; padding: 40px 60px; }
-
-        .vertical-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        .vertical-grid { display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: 0 auto; }
 
         .square-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: var(--radius-xl);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.02);
-            position: relative;
-        }
-
-        .square-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            background: var(--white); padding: 25px; border-radius: var(--radius-xl);
+            display: flex; align-items: center; gap: 25px; border: 1px solid rgba(0,0,0,0.02);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
         .icon-box {
-            width: 80px; height: 80px;
-            background: #fff5f5;
-            border-radius: 20px;
-            display: flex;
-            align-items: center; justify-content: center;
-            font-size: 35px;
-            color: var(--primary-maroon);
-            overflow: hidden; /* لقص الصورة إذا أضيفت */
+            width: 70px; height: 70px; background: #fff5f5; border-radius: 18px;
+            display: flex; align-items: center; justify-content: center; font-size: 30px;
+            color: var(--primary-maroon); overflow: hidden;
         }
-
         .icon-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        .card-info h4 { margin: 0; color: var(--text-muted); font-size: 13px; font-weight: 700; }
-        .card-info .value { font-size: 20px; font-weight: 800; color: var(--primary-maroon); margin-top: 6px; display: block; }
+        .card-info .value { font-size: 18px; font-weight: 800; color: var(--primary-maroon); display: block; }
 
-        /* --- تصميم فورم إضافة ملخص --- */
-        .upload-section {
-            background: white;
-            padding: 25px;
-            border-radius: var(--radius-xl);
-            margin-bottom: 30px;
-            border: 2px dashed var(--accent-gold);
+        /* --- قسم الرفع --- */
+        .upload-area {
+            background: white; padding: 25px; border-radius: var(--radius-xl);
+            margin-bottom: 30px; border: 2px dashed var(--accent-gold);
         }
 
         section { display: none; }
-        section.active { display: block; animation: fadeInUp 0.6s ease both; }
+        section.active { display: block; animation: fadeInUp 0.5s ease; }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-8px); }
-            75% { transform: translateX(8px); }
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -235,183 +111,143 @@
     <div id="login-page">
         <div class="login-card">
             <img src="https://i.ibb.co/QFYMyJC0/photo-5976805467994393998-y.jpg" alt="Logo">
-            <h2 style="color:var(--primary-maroon); margin-bottom: 5px;">ENS-TECH ANNABA</h2>
-            <p style="color:var(--text-muted); margin-bottom: 35px;">بوابة الدخول الموحدة</p>
-            
+            <h2 style="color:var(--primary-maroon);">ENS-TECH ANNABA</h2>
             <div class="input-group">
                 <i class="fas fa-id-badge"></i>
-                <input type="text" id="username" placeholder="رقم التسجيل البيومتري" maxlength="12">
+                <input type="text" id="username" placeholder="رقم التسجيل البيومتري">
             </div>
             <div class="input-group">
                 <i class="fas fa-fingerprint"></i>
                 <input type="password" id="password" placeholder="كلمة المرور">
             </div>
-            
-            <button class="btn-login" id="loginBtn" onclick="handleLogin()">
-                <span id="btnText">تسجيل الدخول</span>
-            </button>
-            <p id="error" style="color:#e11d48; display:none; margin-top:15px; font-weight: 600;">⚠️ تأكد من صحة البيانات</p>
+            <button class="btn-login" onclick="handleLogin()">دخول البوابة</button>
         </div>
     </div>
 
     <div id="app-dashboard">
         <header>
-            <div class="header-logo-section">
-                <img src="https://i.ibb.co/QFYMyJC0/photo-5976805467994393998-y.jpg" alt="Logo">
-                <div style="margin-right: 15px;">
-                    <div style="font-weight:900; color:var(--primary-maroon); font-size:18px;">المدرسة الوطنية العليا للتكنولوجيا</div>
-                    <div style="font-size:12px; color:var(--accent-gold); font-weight: bold;">بوابة الطالب | 2025-2026</div>
-                </div>
+            <div style="display:flex; align-items:center;">
+                <img src="https://i.ibb.co/QFYMyJC0/photo-5976805467994393998-y.jpg" style="height:50px; border-radius:50%;">
+                <div style="margin-right:15px;"><strong>المدرسة الوطنية العليا للتكنولوجيا</strong></div>
             </div>
-            <button onclick="location.reload()" style="background:var(--white); border:2px solid #eee; padding:10px 20px; border-radius:12px; cursor:pointer; font-weight: 700;">
-                <i class="fas fa-sign-out-alt"></i> خروج
-            </button>
+            <button onclick="location.reload()">خروج</button>
         </header>
 
         <div class="sidebar">
             <ul class="sidebar-menu">
-                <li class="active" onclick="showTab('profile', this)"><i class="fas fa-user-circle"></i> الملف الشخصي</li>
-                <li onclick="showTab('grades', this)"><i class="fas fa-medal"></i> النتائج الأكاديمية</li>
-                <li onclick="showTab('schedule', this)"><i class="fas fa-calendar-alt"></i> التوقيت الأسبوعي</li>
-                <li onclick="showTab('courses', this)"><i class="fas fa-graduation-cap"></i> الموارد التعليمية</li>
+                <li class="active" onclick="showTab('profile', this)"><i class="fas fa-user"></i> الملف الشخصي</li>
+                <li onclick="showTab('courses', this)"><i class="fas fa-book"></i> الملخصات والدروس</li>
             </ul>
         </div>
 
         <div class="main-content">
             <section id="profile" class="active">
-                <h2 style="margin-bottom: 30px; color: var(--primary-maroon);">بطاقة الطالب الإلكترونية</h2>
+                <h2>بطاقة الطالب</h2>
                 <div class="vertical-grid">
-                    <div class="square-card"><div class="icon-box"><i class="fas fa-id-card"></i></div><div class="card-info"><h4>الرقم التعريفي</h4><span class="value" id="disp-id"></span></div></div>
-                    <div class="square-card"><div class="icon-box"><i class="fas fa-university"></i></div><div class="card-info"><h4>السنة الجامعية</h4><span class="value" id="disp-bac"></span></div></div>
-                </div>
-            </section>
-
-            <section id="grades">
-                <h2 style="margin-bottom: 30px; color: var(--primary-maroon);">نتائج التدقيق الأكاديمي</h2>
-                <div class="vertical-grid">
-                    <div class="square-card"><div class="icon-box"><i class="fas fa-atom"></i></div><div class="card-info"><h4>الفيزياء التطبيقية</h4><span class="value">17.00 / 20</span></div></div>
-                </div>
-            </section>
-
-            <section id="schedule">
-                <h2 style="margin-bottom: 30px; color: var(--primary-maroon);">الجدول الزمني الذكي</h2>
-                <div class="vertical-grid">
-                    <div class="square-card"><div class="icon-box"><i class="fas fa-clock"></i></div><div class="card-info"><h4>08:30 | قاعة 10</h4><span class="value">محاضرة الأنظمة الرقمية</span></div></div>
+                    <div class="square-card"><div class="icon-box"><i class="fas fa-id-card"></i></div><div class="card-info"><h4>الرقم</h4><span class="value" id="disp-id"></span></div></div>
                 </div>
             </section>
 
             <section id="courses">
-                <h2 style="margin-bottom: 30px; color: var(--primary-maroon);">المكتبة الرقمية والملخصات</h2>
+                <h2>المكتبة الرقمية المشتركة</h2>
                 
-                <div class="upload-section">
-                    <h3 style="margin-top:0; color: var(--dark-maroon); font-size: 16px;"><i class="fas fa-plus-circle"></i> إضافة ملخص أو صورة تعليمية</h3>
-                    <div style="display: flex; flex-direction: column; gap: 15px;">
-                        <input type="text" id="summaryTitle" placeholder="عنوان الملخص أو الدرس..." style="padding: 12px; border: 1px solid #ddd; border-radius: 10px; outline: none;">
-                        
-                        <div style="display: flex; gap: 10px;">
-                            <label for="imgInput" style="flex: 1; background: #eee; padding: 12px; border-radius: 10px; text-align: center; cursor: pointer; color: var(--text-main); font-weight: 600;">
-                                <i class="fas fa-camera"></i> اختر صورة
-                            </label>
+                <div class="upload-area">
+                    <div style="display:flex; flex-direction:column; gap:10px;">
+                        <input type="text" id="summaryTitle" placeholder="عنوان الملخص..." style="padding:12px; border-radius:10px; border:1px solid #ddd;">
+                        <div style="display:flex; gap:10px;">
+                            <label for="imgInput" style="flex:1; background:#eee; padding:12px; text-align:center; border-radius:10px; cursor:pointer;">إضافة صورة</label>
                             <input type="file" id="imgInput" accept="image/*" style="display:none" onchange="previewImage(this)">
-                            
-                            <button onclick="addNewSummary()" style="flex: 1; background: var(--primary-maroon); color: white; border: none; border-radius: 10px; font-weight: 700; cursor: pointer;">
-                                <i class="fas fa-cloud-upload-alt"></i> حفظ ونشر
-                            </button>
+                            <button onclick="saveAndUpload()" style="flex:1; background:var(--primary-maroon); color:white; border:none; border-radius:10px; cursor:pointer;">نشر للجميع</button>
                         </div>
-                        <div id="previewContainer" style="display:none; text-align: center;">
-                            <img id="imgPreview" src="" style="max-height: 150px; border-radius: 10px; border: 2px solid var(--accent-gold);">
-                        </div>
+                        <div id="p-container" style="display:none; text-align:center;"><img id="p-img" style="max-height:100px; border-radius:10px; border:2px solid var(--accent-gold);"></div>
                     </div>
                 </div>
 
                 <div class="vertical-grid" id="summaryContainer">
-                    <div class="square-card">
-                        <div class="icon-box"><i class="fas fa-file-pdf"></i></div>
-                        <div class="card-info">
-                            <h4>المصادر الورقية</h4>
-                            <span class="value">ملخصات PDF المعتمدة</span>
-                        </div>
                     </div>
-                </div>
             </section>
         </div>
     </div>
 
     <script>
-        let currentImgBase64 = "";
+        const API_URL = "https://ensti-3.onrender.com/summaries";
+        let currentBase64 = "";
 
-        // تسجيل الدخول
         function handleLogin() {
             const user = document.getElementById('username').value;
-            const pass = document.getElementById('password').value;
-            const btn = document.getElementById('loginBtn');
-            const error = document.getElementById('error');
-
-            if (/^\d{12}$/.test(user) && pass !== "") {
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحقق...';
-                
-                setTimeout(() => {
-                    document.getElementById('login-page').style.display = 'none';
-                    document.getElementById('app-dashboard').style.display = 'block';
-                    document.getElementById('disp-id').innerText = user;
-                    document.getElementById('disp-bac').innerText = "السنة الجامعية: " + user.substring(0, 4);
-                }, 1000);
-            } else {
-                error.style.display = 'block';
-                document.querySelector('.login-card').style.animation = "shake 0.4s ease";
+            if (user.length >= 4) {
+                document.getElementById('login-page').style.display = 'none';
+                document.getElementById('app-dashboard').style.display = 'block';
+                document.getElementById('disp-id').innerText = user;
+                loadData(); // جلب البيانات عند الدخول
             }
         }
 
-        // تبديل الأقسام
-        function showTab(tabId, el) {
+        function showTab(id, el) {
             document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.sidebar-menu li').forEach(li => li.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
+            document.getElementById(id).classList.add('active');
             el.classList.add('active');
         }
 
-        // معاينة الصورة المرفوعة
         function previewImage(input) {
             if (input.files && input.files[0]) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    document.getElementById('imgPreview').src = e.target.result;
-                    document.getElementById('previewContainer').style.display = 'block';
-                    currentImgBase64 = e.target.result;
+                    currentBase64 = e.target.result;
+                    document.getElementById('p-img').src = e.target.result;
+                    document.getElementById('p-container').style.display = 'block';
                 }
                 reader.readAsDataURL(input.files[0]);
             }
         }
 
-        // إضافة الملخص الجديد للقائمة
-        function addNewSummary() {
+        // جلب البيانات من سيرفر Render
+        async function loadData() {
+            try {
+                const res = await fetch(API_URL);
+                const data = await res.json();
+                const container = document.getElementById('summaryContainer');
+                container.innerHTML = ""; // تنظيف القائمة
+                data.forEach(item => {
+                    addCardToUI(item.title, item.image);
+                });
+            } catch (e) { console.log("السيرفر فارغ أو غير متصل"); }
+        }
+
+        // إرسال البيانات لسيرفر Render
+        async function saveAndUpload() {
             const title = document.getElementById('summaryTitle').value;
+            if (!title) return alert("اكتب عنواناً");
+
+            const payload = { title: title, image: currentBase64 };
+
+            try {
+                const res = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (res.ok) {
+                    addCardToUI(title, currentBase64);
+                    document.getElementById('summaryTitle').value = "";
+                    document.getElementById('p-container').style.display = 'none';
+                    currentBase64 = "";
+                    alert("تم النشر بنجاح!");
+                }
+            } catch (e) { alert("خطأ في الاتصال بالسيرفر"); }
+        }
+
+        function addCardToUI(title, img) {
             const container = document.getElementById('summaryContainer');
-
-            if (!title) {
-                alert("يرجى كتابة عنوان للملخص");
-                return;
-            }
-
             const card = document.createElement('div');
             card.className = 'square-card';
             card.innerHTML = `
-                <div class="icon-box">
-                    ${currentImgBase64 ? `<img src="${currentImgBase64}">` : '<i class="fas fa-file-alt"></i>'}
-                </div>
-                <div class="card-info">
-                    <h4>تمت الإضافة حديثاً</h4>
-                    <span class="value">${title}</span>
-                </div>
+                <div class="icon-box">${img ? `<img src="${img}">` : '<i class="fas fa-file-alt"></i>'}</div>
+                <div class="card-info"><h4>تمت المشاركة</h4><span class="value">${title}</span></div>
             `;
-
             container.prepend(card);
-            
-            // تصفير الخانات
-            document.getElementById('summaryTitle').value = "";
-            document.getElementById('previewContainer').style.display = 'none';
-            currentImgBase64 = "";
-            alert("تمت الإضافة بنجاح!");
         }
     </script>
 </body>
