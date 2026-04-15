@@ -30,7 +30,7 @@
             overflow-x: hidden;
         }
 
-        /* --- شاشة الدخول الاحترافية --- */
+        /* --- شاشة الدخول --- */
         #login-page {
             height: 100vh;
             display: flex;
@@ -105,10 +105,9 @@
         .btn-login:hover {
             background: var(--dark-maroon);
             transform: translateY(-3px);
-            box-shadow: 0 20px 25px -5px rgba(114, 0, 0, 0.4);
         }
 
-        /* --- لوحة التحكم الفخمة --- */
+        /* --- لوحة التحكم --- */
         #app-dashboard { display: none; }
 
         header {
@@ -122,6 +121,7 @@
             position: sticky; top: 0; z-index: 1000;
         }
 
+        .header-logo-section { display: flex; align-items: center; }
         .header-logo-section img {
             height: 60px;
             width: 60px;
@@ -129,7 +129,6 @@
             border: 2px solid var(--accent-gold);
         }
 
-        /* القائمة الجانبية التصميم العائم */
         .sidebar {
             width: 280px;
             height: 85vh;
@@ -142,6 +141,7 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
+        .sidebar-menu { list-style: none; padding: 0; }
         .sidebar-menu li {
             padding: 16px 20px;
             margin-bottom: 12px;
@@ -160,12 +160,10 @@
             color: white;
             opacity: 1;
             transform: translateX(-10px);
-            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
         }
 
         .main-content { margin-right: 320px; padding: 40px 60px; }
 
-        /* --- نظام المربعات العمودية الفخمة --- */
         .vertical-grid {
             display: flex;
             flex-direction: column;
@@ -188,17 +186,8 @@
         }
 
         .square-card:hover {
-            transform: scale(1.03) translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .square-card::after {
-            content: '';
-            position: absolute;
-            right: 0; top: 20%; height: 60%;
-            width: 6px;
-            background: var(--gold-gradient);
-            border-radius: 10px 0 0 10px;
+            transform: scale(1.02);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
         }
 
         .icon-box {
@@ -209,24 +198,29 @@
             align-items: center; justify-content: center;
             font-size: 35px;
             color: var(--primary-maroon);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden; /* لقص الصورة إذا أضيفت */
         }
 
-        .card-info h4 { margin: 0; color: var(--text-muted); font-size: 13px; font-weight: 700; letter-spacing: 1px; }
-        .card-info .value { font-size: 24px; font-weight: 800; color: var(--primary-maroon); margin-top: 6px; display: block; }
+        .icon-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* الأقسام مع أنيميشن */
+        .card-info h4 { margin: 0; color: var(--text-muted); font-size: 13px; font-weight: 700; }
+        .card-info .value { font-size: 20px; font-weight: 800; color: var(--primary-maroon); margin-top: 6px; display: block; }
+
+        /* --- تصميم فورم إضافة ملخص --- */
+        .upload-section {
+            background: white;
+            padding: 25px;
+            border-radius: var(--radius-xl);
+            margin-bottom: 30px;
+            border: 2px dashed var(--accent-gold);
+        }
+
         section { display: none; }
         section.active { display: block; animation: fadeInUp 0.6s ease both; }
 
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
         }
 
         @keyframes shake {
@@ -242,7 +236,7 @@
         <div class="login-card">
             <img src="https://i.ibb.co/QFYMyJC0/photo-5976805467994393998-y.jpg" alt="Logo">
             <h2 style="color:var(--primary-maroon); margin-bottom: 5px;">ENS-TECH ANNABA</h2>
-            <p style="color:var(--text-muted); font-weight: 500; margin-bottom: 35px;">بوابة الدخول الموحدة</p>
+            <p style="color:var(--text-muted); margin-bottom: 35px;">بوابة الدخول الموحدة</p>
             
             <div class="input-group">
                 <i class="fas fa-id-badge"></i>
@@ -256,7 +250,7 @@
             <button class="btn-login" id="loginBtn" onclick="handleLogin()">
                 <span id="btnText">تسجيل الدخول</span>
             </button>
-            <p id="error" style="color:#e11d48; display:none; margin-top:15px; font-weight: 600;">⚠️ عذراً، تأكد من صحة البيانات</p>
+            <p id="error" style="color:#e11d48; display:none; margin-top:15px; font-weight: 600;">⚠️ تأكد من صحة البيانات</p>
         </div>
     </div>
 
@@ -269,7 +263,7 @@
                     <div style="font-size:12px; color:var(--accent-gold); font-weight: bold;">بوابة الطالب | 2025-2026</div>
                 </div>
             </div>
-            <button onclick="location.reload()" style="background:var(--white); border:2px solid #eee; padding:10px 20px; border-radius:12px; cursor:pointer; font-weight: 700; color: var(--primary-maroon); transition: 0.3s;">
+            <button onclick="location.reload()" style="background:var(--white); border:2px solid #eee; padding:10px 20px; border-radius:12px; cursor:pointer; font-weight: 700;">
                 <i class="fas fa-sign-out-alt"></i> خروج
             </button>
         </header>
@@ -289,8 +283,6 @@
                 <div class="vertical-grid">
                     <div class="square-card"><div class="icon-box"><i class="fas fa-id-card"></i></div><div class="card-info"><h4>الرقم التعريفي</h4><span class="value" id="disp-id"></span></div></div>
                     <div class="square-card"><div class="icon-box"><i class="fas fa-university"></i></div><div class="card-info"><h4>السنة الجامعية</h4><span class="value" id="disp-bac"></span></div></div>
-                    <div class="square-card"><div class="icon-box"><i class="fas fa-layer-group"></i></div><div class="card-info"><h4>التخصص والمستوى</h4><span class="value">هندسة الأنظمة - السنة الثالثة</span></div></div>
-                    <div class="square-card"><div class="icon-box"><i class="fas fa-shield-check" style="color:#10b981"></i></div><div class="card-info"><h4>حالة الحساب</h4><span class="value" style="color:#10b981">مُفعل ونشط</span></div></div>
                 </div>
             </section>
 
@@ -298,8 +290,6 @@
                 <h2 style="margin-bottom: 30px; color: var(--primary-maroon);">نتائج التدقيق الأكاديمي</h2>
                 <div class="vertical-grid">
                     <div class="square-card"><div class="icon-box"><i class="fas fa-atom"></i></div><div class="card-info"><h4>الفيزياء التطبيقية</h4><span class="value">17.00 / 20</span></div></div>
-                    <div class="square-card"><div class="icon-box"><i class="fas fa-binary"></i></div><div class="card-info"><h4>الذكاء الاصطناعي</h4><span class="value">18.50 / 20</span></div></div>
-                    <div class="square-card"><div class="icon-box"><i class="fas fa-calculator"></i></div><div class="card-info"><h4>الاحتمالات والإحصاء</h4><span class="value">15.00 / 20</span></div></div>
                 </div>
             </section>
 
@@ -307,84 +297,122 @@
                 <h2 style="margin-bottom: 30px; color: var(--primary-maroon);">الجدول الزمني الذكي</h2>
                 <div class="vertical-grid">
                     <div class="square-card"><div class="icon-box"><i class="fas fa-clock"></i></div><div class="card-info"><h4>08:30 | قاعة 10</h4><span class="value">محاضرة الأنظمة الرقمية</span></div></div>
-                    <div class="square-card"><div class="icon-box"><i class="fas fa-tools"></i></div><div class="card-info"><h4>13:00 | مخبر B</h4><span class="value">أعمال تطبيقية - روبوتيك</span></div></div>
                 </div>
             </section>
 
             <section id="courses">
-                <h2 style="margin-bottom: 30px; color: var(--primary-maroon);">المكتبة الرقمية والدروس</h2>
-                <div class="vertical-grid">
-                    <div class="square-card"><div class="icon-box"><i class="fas fa-cloud-download-alt"></i></div><div class="card-info"><h4>محاضرات الفيديو</h4><span class="value">دروس الدعم المسجلة</span></div></div>
-                    <div class="square-card"><div class="icon-box"><i class="fas fa-file-invoice"></i></div><div class="card-info"><h4>المصادر الورقية</h4><span class="value">ملخصات PDF المعتمدة</span></div></div>
+                <h2 style="margin-bottom: 30px; color: var(--primary-maroon);">المكتبة الرقمية والملخصات</h2>
+                
+                <div class="upload-section">
+                    <h3 style="margin-top:0; color: var(--dark-maroon); font-size: 16px;"><i class="fas fa-plus-circle"></i> إضافة ملخص أو صورة تعليمية</h3>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="text" id="summaryTitle" placeholder="عنوان الملخص أو الدرس..." style="padding: 12px; border: 1px solid #ddd; border-radius: 10px; outline: none;">
+                        
+                        <div style="display: flex; gap: 10px;">
+                            <label for="imgInput" style="flex: 1; background: #eee; padding: 12px; border-radius: 10px; text-align: center; cursor: pointer; color: var(--text-main); font-weight: 600;">
+                                <i class="fas fa-camera"></i> اختر صورة
+                            </label>
+                            <input type="file" id="imgInput" accept="image/*" style="display:none" onchange="previewImage(this)">
+                            
+                            <button onclick="addNewSummary()" style="flex: 1; background: var(--primary-maroon); color: white; border: none; border-radius: 10px; font-weight: 700; cursor: pointer;">
+                                <i class="fas fa-cloud-upload-alt"></i> حفظ ونشر
+                            </button>
+                        </div>
+                        <div id="previewContainer" style="display:none; text-align: center;">
+                            <img id="imgPreview" src="" style="max-height: 150px; border-radius: 10px; border: 2px solid var(--accent-gold);">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vertical-grid" id="summaryContainer">
+                    <div class="square-card">
+                        <div class="icon-box"><i class="fas fa-file-pdf"></i></div>
+                        <div class="card-info">
+                            <h4>المصادر الورقية</h4>
+                            <span class="value">ملخصات PDF المعتمدة</span>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
     </div>
 
     <script>
-        /**
-         * وظيفة تسجيل الدخول مع تأثيرات تحميل
-         */
+        let currentImgBase64 = "";
+
+        // تسجيل الدخول
         function handleLogin() {
             const user = document.getElementById('username').value;
             const pass = document.getElementById('password').value;
             const btn = document.getElementById('loginBtn');
-            const btnText = document.getElementById('btnText');
             const error = document.getElementById('error');
 
             if (/^\d{12}$/.test(user) && pass !== "") {
-                // تأثير التحميل
-                btnText.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحقق...';
-                btn.style.opacity = "0.7";
-                btn.disabled = true;
-
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحقق...';
+                
                 setTimeout(() => {
-                    document.getElementById('login-page').style.transition = "0.8s ease";
-                    document.getElementById('login-page').style.opacity = "0";
-                    document.getElementById('login-page').style.transform = "scale(1.1)";
-
-                    setTimeout(() => {
-                        document.getElementById('login-page').style.display = 'none';
-                        document.getElementById('app-dashboard').style.display = 'block';
-                        document.getElementById('disp-id').innerText = user;
-                        document.getElementById('disp-bac').innerText = "السنة الجامعية: " + user.substring(0, 4);
-                        
-                        // تفعيل أول تبويب بشكل تلقائي
-                        window.scrollTo(0,0);
-                    }, 600);
-                }, 1500);
-
+                    document.getElementById('login-page').style.display = 'none';
+                    document.getElementById('app-dashboard').style.display = 'block';
+                    document.getElementById('disp-id').innerText = user;
+                    document.getElementById('disp-bac').innerText = "السنة الجامعية: " + user.substring(0, 4);
+                }, 1000);
             } else {
-                const card = document.querySelector('.login-card');
-                card.style.animation = "shake 0.4s ease";
                 error.style.display = 'block';
-                setTimeout(() => card.style.animation = "", 400);
+                document.querySelector('.login-card').style.animation = "shake 0.4s ease";
             }
         }
 
-        /**
-         * تبديل التبويبات مع أنيميشن سلس
-         */
+        // تبديل الأقسام
         function showTab(tabId, el) {
-            // إخفاء الأقسام مع أنيميشن خفيف
-            const currentSection = document.querySelector('section.active');
-            currentSection.style.opacity = "0";
-            currentSection.style.transform = "translateY(20px)";
-
-            setTimeout(() => {
-                document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-                document.querySelectorAll('.sidebar-menu li').forEach(li => li.classList.remove('active'));
-                
-                const nextSection = document.getElementById(tabId);
-                nextSection.classList.add('active');
-                el.classList.add('active');
-            }, 300);
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.sidebar-menu li').forEach(li => li.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            el.classList.add('active');
         }
 
-        // إضافة دعم لزر Enter
-        document.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleLogin();
-        });
+        // معاينة الصورة المرفوعة
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('imgPreview').src = e.target.result;
+                    document.getElementById('previewContainer').style.display = 'block';
+                    currentImgBase64 = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // إضافة الملخص الجديد للقائمة
+        function addNewSummary() {
+            const title = document.getElementById('summaryTitle').value;
+            const container = document.getElementById('summaryContainer');
+
+            if (!title) {
+                alert("يرجى كتابة عنوان للملخص");
+                return;
+            }
+
+            const card = document.createElement('div');
+            card.className = 'square-card';
+            card.innerHTML = `
+                <div class="icon-box">
+                    ${currentImgBase64 ? `<img src="${currentImgBase64}">` : '<i class="fas fa-file-alt"></i>'}
+                </div>
+                <div class="card-info">
+                    <h4>تمت الإضافة حديثاً</h4>
+                    <span class="value">${title}</span>
+                </div>
+            `;
+
+            container.prepend(card);
+            
+            // تصفير الخانات
+            document.getElementById('summaryTitle').value = "";
+            document.getElementById('previewContainer').style.display = 'none';
+            currentImgBase64 = "";
+            alert("تمت الإضافة بنجاح!");
+        }
     </script>
 </body>
 </html>
